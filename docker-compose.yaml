@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+    demo:
+        image: dev
+        build:
+            context: .
+            target: dev
+        volumes:
+            - "${PWD}/my-webapp:/usr/src/app"
+        ports:
+            - "3000:3000"
