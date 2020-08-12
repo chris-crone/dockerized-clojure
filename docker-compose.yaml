@@ -1,12 +1,14 @@
 version: "3.8"
 
 services:
-    demo:
-        image: dev
+    dev:
+        image: ${DEV_IMAGE}
         build:
             context: .
             target: dev
         volumes:
+            # Here we specify that we would like to bind mount the source code
+            # from the host into the container
             - "${PWD}/my-webapp:/usr/src/app"
         ports:
             - "3000:3000"
